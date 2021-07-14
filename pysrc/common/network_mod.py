@@ -6,6 +6,8 @@ class Network(nn.Module):
     def __init__(self, resize, dim_fc_out, dropout_rate, use_pretrained_vgg=True):
         super(Network, self).__init__()
 
+        self.kernel_size = 3
+
         vgg = models.vgg16(pretrained=use_pretrained_vgg)
         self.cnn_feature = vgg.features
 

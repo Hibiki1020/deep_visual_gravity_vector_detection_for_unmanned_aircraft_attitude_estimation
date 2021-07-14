@@ -13,10 +13,10 @@ class Network(nn.Module):
 
         self.cnn_add = nn.Sequential(
             nn.Conv2d(   512,  64, self.kernel_size, padding=1, bias=False),
-            nn.ReLU(inplace=True)
+            nn.ReLU(inplace=True),
         )
 
-        dim_fc_in = 12 * 12 * 64
+        dim_fc_in = 14 * 14 * 64
         self.fc = nn.Sequential(
             nn.Linear(dim_fc_in, 18),
             nn.ReLU(inplace=True),

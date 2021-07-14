@@ -16,7 +16,7 @@ class Network(nn.Module):
             nn.ReLU(inplace=True),
         )
 
-        dim_fc_in = 14 * 14 * 64
+        dim_fc_in = 7 * 7 * 64
         self.fc = nn.Sequential(
             nn.Linear(dim_fc_in, 18),
             nn.ReLU(inplace=True),

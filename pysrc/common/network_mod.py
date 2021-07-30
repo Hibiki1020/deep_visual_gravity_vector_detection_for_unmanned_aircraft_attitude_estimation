@@ -3,7 +3,7 @@ from torchvision import models
 import torch.nn as nn
 
 class Network(nn.Module):
-    def __init__(self, resize, dim_fc_out, dropout_rate, use_pretrained_vgg=True):
+    def __init__(self, resize, use_pretrained_vgg=True):
         super(Network, self).__init__()
 
         self.kernel_size = 3

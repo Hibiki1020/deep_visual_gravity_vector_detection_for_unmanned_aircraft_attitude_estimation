@@ -104,7 +104,7 @@ class Trainer:
                 {"params": list_cnn_param_value, "lr": lr_cnn},
                 {"params": list_cnn_add_param_value, "lr": lr_cnn},
                 {"params": list_fc_param_value,  "lr": lr_fc },
-            ])
+            ], weight_decay=self.weight_decay)
 
         print(optimizer)
         return optimizer

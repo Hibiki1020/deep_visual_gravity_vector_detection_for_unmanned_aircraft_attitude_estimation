@@ -8,7 +8,8 @@ class Network(nn.Module):
 
         self.kernel_size = 3
 
-        vgg = models.VGG(pretrained=use_pretrained_vgg)
+        #vgg = models.vgg16(pretrained=use_pretrained_vgg)
+        vgg = models.VGG()
         self.cnn_feature = vgg.features
 
         self.cnn_add = nn.Sequential(

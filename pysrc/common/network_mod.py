@@ -33,7 +33,7 @@ class Network(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
-            nn.Conv2d(   512,  64, kernel_size=3, padding=1, , dilation=2, bias=False),
+            nn.Conv2d(   512,  64, kernel_size=3, padding=1, dilation=2, bias=False),
             nn.ReLU(inplace=True),
         )
 

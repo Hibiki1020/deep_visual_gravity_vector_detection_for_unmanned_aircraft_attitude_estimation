@@ -12,35 +12,23 @@ class Network(nn.Module):
         #vgg = models.VGG()
         self.cnn_feature = vgg.features
 
-        self.block1_output = nn.Sequential (
+        self.cnn = nn.Sequential (
             nn.Conv2d(3, 64, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-        )
-
-        self.block2_output = nn.Sequential (
             nn.Conv2d(64, 128, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-        )
-
-        self.block3_output = nn.Sequential (
             nn.Conv2d(128, 256, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.Conv2d(256, 256, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-        )
-
-        self.block4_output = nn.Sequential (
             nn.Conv2d(256, 512, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-        )
-
-        self.block5_output = nn.Sequential (
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
@@ -91,7 +79,8 @@ class Network(nn.Module):
         return list_cnn_param_value, list_cnn_add_param_value, list_fc_param_value
 
     def forward(self, x):
-        x = self.cnn_feature(x)
+        #x = self.cnn_feature(x)
+        x = self.cnn(x)
         x = self.cnn_add(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)

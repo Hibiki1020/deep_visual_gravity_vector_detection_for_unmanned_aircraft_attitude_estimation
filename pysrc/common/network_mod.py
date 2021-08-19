@@ -33,12 +33,14 @@ class Network(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
-        )
-
-        self.cnn_add = nn.Sequential(
             nn.Conv2d(   512,  64, self.kernel_size, padding=1, bias=False),
             nn.ReLU(inplace=True),
         )
+
+        #self.cnn_add = nn.Sequential(
+        #    nn.Conv2d(   512,  64, self.kernel_size, padding=1, bias=False),
+        #    nn.ReLU(inplace=True),
+        #)
 
         dim_fc_in = 12 * 12 * 64
         self.fc = nn.Sequential(
@@ -54,7 +56,6 @@ class Network(nn.Module):
 
     def getParamValueList(self):
         list_cnn_param_value = []
-        list_cnn_add_param_value = []
         list_fc_param_value = []
         
         for param_name, param_value in self.named_parameters():
@@ -62,19 +63,16 @@ class Network(nn.Module):
             if "cnn" in param_name:
                 # print("cnn: ", param_name)
                 list_cnn_param_value.append(param_value)
-            if "cnn_add" in param_name:
-                list_cnn_add_param_value.append(param_value)
             if "fc" in param_name:
                 # print("fc: ", param_name)
                 list_fc_param_value.append(param_value)
         # print("list_cnn_param_value: ",list_cnn_param_value)
         # print("list_fc_param_value: ",list_fc_param_value)
-        return list_cnn_param_value, list_cnn_add_param_value, list_fc_param_value
+        return list_cnn_param_value, list_fc_param_value
 
     def forward(self, x):
         #x = self.cnn_feature(x)
         x = self.cnn(x)
-        x = self.cnn_add(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)
         l2norm = torch.norm(x[:, :3].clone(), p=2, dim=1, keepdim=True)

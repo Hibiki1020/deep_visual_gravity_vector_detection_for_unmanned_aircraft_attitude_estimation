@@ -41,13 +41,6 @@ class Network(nn.Module):
         )
 
         dim_fc_in = 12 * 12 * 64
-        self.cnn = nn.Sequential(
-            self.block1_output,
-            self.block2_output,
-            self.block3_output,
-            self.block4_output,
-            self.block5_output
-        )
         self.fc = nn.Sequential(
             nn.Linear(dim_fc_in, 18),
             nn.ReLU(inplace=True),

@@ -53,6 +53,13 @@ class Network(nn.Module):
         )
 
         dim_fc_in = 12 * 12 * 64
+        self.cnn = nn.Sequential(
+            self.block1_output,
+            self.block2_output,
+            self.block3_output,
+            self.block4_output,
+            self.block5_output
+        )
         self.fc = nn.Sequential(
             nn.Linear(dim_fc_in, 18),
             nn.ReLU(inplace=True),
@@ -84,13 +91,7 @@ class Network(nn.Module):
         return list_cnn_param_value, list_cnn_add_param_value, list_fc_param_value
 
     def forward(self, x):
-        #x = self.cnn_feature(x)
-        #x = self.cnn_add(x)
-        x = self.block1_output(x)
-        x = self.block2_output(x)
-        x = self.block3_output(x)
-        x = self.block4_output(x)
-        x = self.block5_output(x)
+        x = self.cnn_feature(x)
         x = self.cnn_add(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)

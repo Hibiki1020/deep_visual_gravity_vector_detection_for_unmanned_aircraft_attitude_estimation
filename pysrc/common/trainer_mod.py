@@ -90,17 +90,19 @@ class Trainer:
         return net
 
     def getOptimizer(self, optimizer_name, lr_cnn, lr_fc):
-        list_cnn_param_value, list_fc_param_value = self.net.getParamValueList()
+        list_cnn_param_value, list_cnn_add_param_value, list_fc_param_value = self.net.getParamValueList()
 
         #Set Optimizer
         if optimizer_name == "SGD":
             optimizer = optim.SGD([
                 {"params": list_cnn_param_value, "lr": lr_cnn},
+                {"params": list_cnn_add_param_value, "lr": lr_cnn},
                 {"params": list_fc_param_value,  "lr": lr_fc },
             ], momentum=0.9)
         elif optimizer_name == "Adam":
             optimizer = optim.Adam([
                 {"params": list_cnn_param_value, "lr": lr_cnn},
+                {"params": list_cnn_add_param_value, "lr": lr_cnn},
                 {"params": list_fc_param_value,  "lr": lr_fc },
             ])
 

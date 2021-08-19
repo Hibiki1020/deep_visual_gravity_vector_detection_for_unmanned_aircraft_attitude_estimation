@@ -45,7 +45,7 @@ class Network(nn.Module):
                 list_fc_param_value.append(param_value)
         # print("list_cnn_param_value: ",list_cnn_param_value)
         # print("list_fc_param_value: ",list_fc_param_value)
-        return list_cnn_param_value, list_fc_param_value
+        return list_cnn_param_value, list_cnn_add_param_value, list_fc_param_value
 
     def forward(self, x):
         x = self.cnn_feature(x)

@@ -73,7 +73,7 @@ class Network(nn.Module):
     def forward(self, x):
         #x = self.cnn_feature(x)
         x = self.cnn(x)
-        print(x.size())
+        #print(x.size())
         x = torch.flatten(x, 1)
         x = self.fc(x)
         l2norm = torch.norm(x[:, :3].clone(), p=2, dim=1, keepdim=True)

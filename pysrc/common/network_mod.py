@@ -8,9 +8,9 @@ class Network(nn.Module):
 
         self.kernel_size = 3
 
-        vgg = models.vgg16(pretrained=use_pretrained_vgg)
+        #vgg = models.vgg16(pretrained=use_pretrained_vgg)
         #vgg = models.VGG()
-        self.cnn_feature = vgg.features
+        #self.cnn_feature = vgg.features
 
         self.cnn = nn.Sequential (
             nn.Conv2d(3, 64, kernel_size=3, padding=1),

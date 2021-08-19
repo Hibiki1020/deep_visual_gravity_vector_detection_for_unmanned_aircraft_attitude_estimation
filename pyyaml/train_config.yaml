@@ -1,17 +1,16 @@
 method_name: "regression"
 
-save_top_path: "/home/ssd_dir/deep_gravity/test"
+save_top_path: "/home/ssd_dir/deep_gravity/test1"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"
 
 train:
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_01_image70000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_02_image140000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_03_image140000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_04_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir1_image35000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
 valid:
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_02_image70000/"
+ - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/valid_image5000/"
 csv_name: "image_attitude.csv"
 
 multiGPU: 1 #1 is ture
@@ -22,11 +21,11 @@ hyperparameter:
   mean_element: 0.5
   std_element: 0.5
   hor_fov_deg: 70
-  optimizer_name: "Adam"
+  optimizer_name: "SGD"
   lr_cnn: 1e-5
   lr_fc: 1e-5
   weight_decay: 0.0001
-  batch_size: 512
-  num_epochs: 50
+  batch_size: 50
+  num_epochs: 20
   dropout_rate: 0.1
   dim_fc_out: 3

@@ -1,19 +1,19 @@
 method_name: "regression"
 
-save_top_path: "/home/ssd_dir/deep_gravity/test1"
+save_top_path: "/home/deep_visual_gravity_vector_detection_for_unmanned_aircraft_attitude_estimation_log/train_08_21"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"
 
 train:
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/dir2_image70000/"
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/dir1_image35000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/dir3_image210000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir1_image35000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
 valid:
- - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/valid_image5000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/valid_image5000/"
 csv_name: "image_attitude.csv"
 
-multiGPU: 0 #1 is ture
+multiGPU: 1 #1 is ture
 
 hyperparameter:
   original_size: 672
@@ -26,6 +26,6 @@ hyperparameter:
   lr_fc: 1e-5
   weight_decay: 0.0001
   batch_size: 50
-  num_epochs: 15
+  num_epochs: 50
   dropout_rate: 0.1
   dim_fc_out: 3

@@ -138,7 +138,7 @@ class FrameInfer:
         pitch_array = []
         yaw_array = []
 
-        for i in range(1)):
+        for i in range(1):
             inferenced_x = self.net(input_tensor)/3.141592*180.0
             
             #print(inferenced_x)

@@ -6,7 +6,7 @@ csv_name: "image_attitude.csv"
 weights_top_directory: "/home/ssd_dir/deep_gravity/train_08_21/"
 weights_file_name: "weights.pth"
 
-infer_log_top_directory: "/home/ssd_dir/cnn_attitude_estimator_log/infer_log/test_2021_07_19/"
+infer_log_top_directory: "/home/ssd_dir/deep_gravity/infer_log/test_08_23/"
 infer_log_file_name: "frame_infer_relust.csv"
 
 resize: 224

@@ -184,9 +184,9 @@ class FrameInfer:
             print("Period [s]: ", time.time() - start_clock)
             print("---------------------")
 
-            cv2.imshow('image',image)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            #cv2.imshow('image',image)
+            #cv2.waitKey(0)
+            #cv2.destroyAllWindows()
 
             infer_count += 1
 

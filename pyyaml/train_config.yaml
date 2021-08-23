@@ -1,6 +1,6 @@
 method_name: "regression"
 
-save_top_path: "/home/ssd_dir/deep_visual_gravity_vector_detection_for_unmanned_aircraft_attitude_estimation_log/train_on_luffy_35000"
+save_top_path: "/home/ssd_dir/deep_gravity/train_on_luffy_35000"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"

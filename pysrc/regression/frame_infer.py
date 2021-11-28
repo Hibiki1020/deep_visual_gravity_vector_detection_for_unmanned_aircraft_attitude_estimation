@@ -103,7 +103,7 @@ class FrameInfer:
             if p.requires_grad:
                 params += p.numel()
         
-print(params)
+        print(params)
 
         return net
 
